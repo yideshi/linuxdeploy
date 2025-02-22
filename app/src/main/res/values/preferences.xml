@@ -1,8 +1,8 @@
 <resources>
 
     <string name="screenlock" translatable="false">true</string>
-    <string name="wifilock" translatable="false">true</string>
-    <string name="wakelock" translatable="false">true</string>
+    <string name="wifilock" translatable="false">false</string>
+    <string name="wakelock" translatable="false">false</string>
     <string name="fontsize" translatable="false">10</string>
     <string name="maxlines" translatable="false">100</string>
     <string name="language" translatable="false"></string>
@@ -59,7 +59,7 @@
     <string name="init_async" translatable="false">false</string>
     <string name="is_mounts" translatable="false">false</string>
     <string name="mounts" translatable="false">/system /sdcard:/mnt/sdcard</string>
-    <string name="is_ssh" translatable="false">true</string>
+    <string name="is_ssh" translatable="false">false</string>
     <string name="ssh_port" translatable="false">22</string>
     <string name="ssh_options" translatable="false"></string>
     <string name="is_pulse" translatable="false">false</string>
@@ -131,7 +131,7 @@
     <string name="x86_64_kali_arch" translatable="false">amd64</string>
 
     <!-- Fedora -->
-    <string name="fedora_suite" translatable="false">30</string>
+    <string name="fedora_suite" translatable="false">37</string>
     <!-- arm -->
     <string name="arm_fedora_source_path" translatable="false">http://dl.fedoraproject.org/pub/</string>
     <string name="arm_fedora_arch" translatable="false">armhfp</string>
@@ -176,7 +176,7 @@
     <string name="x86_64_archlinux_arch" translatable="false">x86_64</string>
 
     <!-- Slackware -->
-    <string name="slackware_suite" translatable="false">14.2</string>
+    <string name="slackware_suite" translatable="false">15.0</string>
     <!-- arm -->
     <string name="arm_slackware_source_path" translatable="false">http://ftp.arm.slackware.com/slackwarearm/</string>
     <string name="arm_slackware_arch" translatable="false">arm</string>

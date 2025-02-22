@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId 'ru.meefik.linuxdeploy'
-        minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 257
-        versionName "2.5.1"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 260
+        versionName "2.6.1"
         vectorDrawables.useSupportLibrary true
     }
     buildTypes {
@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.browser:browser:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
