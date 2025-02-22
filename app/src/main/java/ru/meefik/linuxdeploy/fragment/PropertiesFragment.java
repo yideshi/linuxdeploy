@@ -19,7 +19,6 @@ import ru.meefik.linuxdeploy.activity.PropertiesActivity;
 
 public class PropertiesFragment extends PreferenceFragmentCompat implements
         Preference.OnPreferenceClickListener, OnSharedPreferenceChangeListener {
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         getPreferenceManager().setSharedPreferencesName(PrefStore.getPropertiesSharedName());
