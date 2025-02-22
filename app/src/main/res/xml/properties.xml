@@ -231,6 +231,12 @@
             android:summary="@string/desktop"
             android:title="@string/title_desktop_preference" />
 
+        <CheckBoxPreference
+            android:defaultValue="@string/is_input_method"
+            android:dependency="is_gui"
+            android:key="is_input_method"
+            android:summary="@string/InputMethod"
+            android:title="@string/title_intputmethod" />
     </PreferenceCategory>
 
 </PreferenceScreen>

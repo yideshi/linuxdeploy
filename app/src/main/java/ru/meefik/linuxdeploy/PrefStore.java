@@ -109,6 +109,18 @@ public class PrefStore {
     }
 
     /**
+     * Get ExternalStorage directory
+     *
+     * @param c context
+     * @return path, e.g. /sdcard/Android/data/package/files
+     */
+    public static String getExternalDir(Context c) {
+         String ExternalDir = c.getExternalFilesDir(null).getAbsolutePath();
+         return ExternalDir;
+    }
+
+
+    /**
      * Restore settings from configuration file
      *
      * @param c context
@@ -183,7 +195,7 @@ public class PrefStore {
                     language = countryCode;
                     break;
                 default:
-                    language = "en";
+                    language = "zh";
             }
             SETTINGS.set(c, "language", language);
         }

@@ -281,7 +281,6 @@
     <!-- Debian -->
 
     <string-array name="debian_suite_values" translatable="false">
-        <item>jessie</item>
         <item>stretch</item>
         <item>buster</item>
         <item>bullseye</item>
@@ -329,6 +328,8 @@
     <!-- Fedora -->
 
     <string-array name="fedora_suite_values" translatable="false">
+        <item>34</item>
+        <item>35</item>
         <item>36</item>
         <item>37</item>
     </string-array>
@@ -343,6 +344,7 @@
 
     <string-array name="centos_suite_values" translatable="false">
         <item>7</item>
+        <item>9-stream</item>
     </string-array>
     <string-array name="centos_arch_values" translatable="false">
         <item>armhfp</item>

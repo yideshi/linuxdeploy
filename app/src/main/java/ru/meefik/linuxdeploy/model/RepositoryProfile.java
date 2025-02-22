@@ -1,21 +1,15 @@
 package ru.meefik.linuxdeploy.model;
 
 public class RepositoryProfile {
-    private String profile;
+    private String url;
     private String description;
     private String type;
-    private String size;
+    private String ExtractionCode;
+    private int iconId;
 
-    public RepositoryProfile() {
-        // Empty constructor
-    }
-
-    public String getProfile() {
-        return profile;
-    }
-
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public RepositoryProfile(String type,int iconId) {
+        this.iconId = iconId;
+        this.type = type;
     }
 
     public String getDescription() {
@@ -34,11 +28,20 @@ public class RepositoryProfile {
         this.type = type;
     }
 
-    public String getSize() {
-        return size;
+    public String geturl() {
+        return url;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void seturl(String url) {
+        this.url = url;
     }
+
+    public void setinonId(int Id) {this.iconId = Id;}
+
+    public int getIconId() {return this.iconId;}
+
+    public void setExtractionCode(String code) {this.ExtractionCode = code;}
+
+    public String getExtractionCode() {return this.ExtractionCode;}
+
 }
