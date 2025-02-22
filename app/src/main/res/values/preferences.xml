@@ -10,9 +10,9 @@
     <string name="timestamp" translatable="false">true</string>
     <string name="appicon" translatable="false">true</string>
     <string name="stealth" translatable="false">false</string>
-    <string name="autostart" translatable="false">true</string>
+    <string name="autostart" translatable="false">false</string>
     <string name="autostart_delay" translatable="false">30</string>
-    <string name="nettrack" translatable="false">true</string>
+    <string name="nettrack" translatable="false">false</string>
     <string name="powertrack" translatable="false">false</string>
     <string name="env_dir" translatable="false"></string>
     <string name="repository_url" translatable="false">http://hub.meefik.ru</string>
@@ -47,7 +47,7 @@
     <string name="user_name" translatable="false">android</string>
     <string name="user_password" translatable="false"></string>
     <string name="privileged_users" translatable="false">android:aid_inet android:aid_sdcard_rw android:aid_graphics</string>
-    <string name="locale" translatable="false">zh_CN.UTF-8</string>
+    <string name="locale" translatable="false">C</string>
     <string name="dns" translatable="false"></string>
     <string name="net_trigger" translatable="false"></string>
     <string name="power_trigger" translatable="false"></string>
