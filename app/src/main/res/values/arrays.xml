@@ -281,6 +281,7 @@
     <!-- Debian -->
 
     <string-array name="debian_suite_values" translatable="false">
+        <item>jessie</item>
         <item>stretch</item>
         <item>buster</item>
         <item>bullseye</item>
@@ -328,10 +329,7 @@
     <!-- Fedora -->
 
     <string-array name="fedora_suite_values" translatable="false">
-        <item>34</item>
-        <item>35</item>
-        <item>36</item>
-        <item>37</item>
+        <item>30</item>
     </string-array>
     <string-array name="fedora_arch_values" translatable="false">
         <item>armhfp</item> <!-- f19 and later -->
@@ -344,7 +342,6 @@
 
     <string-array name="centos_suite_values" translatable="false">
         <item>7</item>
-        <item>9-stream</item>
     </string-array>
     <string-array name="centos_arch_values" translatable="false">
         <item>armhfp</item>
@@ -371,11 +368,9 @@
 
     <string-array name="slackware_suite_values" translatable="false">
         <item>14.2</item>
-        <item>15.0</item>
     </string-array>
     <string-array name="slackware_arch_values" translatable="false">
         <item>arm</item>
-        <item>arm64</item>
         <item>x86</item>
         <item>x86_64</item>
     </string-array>

@@ -19,6 +19,7 @@ import ru.meefik.linuxdeploy.activity.PropertiesActivity;
 
 public class PropertiesFragment extends PreferenceFragmentCompat implements
         Preference.OnPreferenceClickListener, OnSharedPreferenceChangeListener {
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         getPreferenceManager().setSharedPreferencesName(PrefStore.getPropertiesSharedName());
@@ -163,13 +164,6 @@ public class PropertiesFragment extends PreferenceFragmentCompat implements
                 editPref.setText(PrefStore.generatePassword());
                 pref.setSummary(editPref.getText());
             }
-            if (editPref.getKey().equals("user_name")) {
-                String userName = editPref.getText();
-                String privilegedUsers = getString(R.string.privileged_users).replaceAll("android", userName);
-                EditTextPreference editPrivilegedUsers = findPreference("privileged_users");
-                editPrivilegedUsers.setText(privilegedUsers);
-                editPrivilegedUsers.setSummary(privilegedUsers);
-            }
         }
 
         if (pref instanceof ListPreference) {
@@ -309,5 +303,4 @@ public class PropertiesFragment extends PreferenceFragmentCompat implements
             }
         }
     }
-
 }

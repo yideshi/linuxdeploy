@@ -3,7 +3,6 @@ package ru.meefik.linuxdeploy;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,7 +29,6 @@ public class EnvUtils {
      * @param path      path to asset file
      * @return true if success
      */
-
     private static boolean extractFile(Context c, String target, String rootAsset, String path) {
         AssetManager assetManager = c.getAssets();
 
@@ -243,8 +241,6 @@ public class EnvUtils {
         // stop services
         execServices(c, new String[]{"telnetd", "httpd"}, "stop");
 
-        Runtime runtime = Runtime.getRuntime();
-
         // extract env assets
         if (!extractDir(c, PrefStore.getEnvDir(c), "env", "")) return false;
 
@@ -297,16 +293,8 @@ public class EnvUtils {
         } catch (IOException ignored) {
         }
 
-        // create ExternalStorage directory
-        File ExternalStorageDir = new File(PrefStore.getExternalDir(c)+"/..");
-        ExternalStorageDir.mkdirs();
-
-        // create External directory
-        File ExternalFileDir = new File(PrefStore.getExternalDir(c));
-        ExternalFileDir.mkdirs();
-
         List<String> params = new ArrayList<>();
-        // install busybox aoolets
+        // install busybox applets
         params.add("busybox --install -s " + PrefStore.getBinDir(c));
         // replace shell interpreter in some scripts
         String[] scripts = {
@@ -342,15 +330,12 @@ public class EnvUtils {
      */
     private static boolean makeMainScript(Context c) {
         String scriptFile = PrefStore.getBinDir(c) + "/linuxdeploy";
-        String Arch = PrefStore.getArch();
+
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(scriptFile))) {
-            bw.write("#!/system/bin/sh\n");
+            bw.write("#!" + PrefStore.getShell(c) + "\n");
             bw.write("PATH=" + PrefStore.getPath(c) + ":$PATH\n");
             bw.write("ENV_DIR=\"" + PrefStore.getEnvDir(c) + "\"\n");
-            bw.write("if [ ! -e ${ENV_DIR}/bin/ash ]; then\n");
-            bw.write("  ${ENV_DIR}/bin/busybox --install -s ${ENV_DIR}/bin\n");
-            bw.write("fi\n");
-            bw.write("${ENV_DIR}/bin/ash \"${ENV_DIR}/cli.sh\" \"$@\" \n");
+            bw.write(". \"${ENV_DIR}/cli.sh\"\n");
             return true;
         } catch (IOException e) {
             return false;

@@ -48,11 +48,6 @@ class PropertiesStore extends ParamUtils {
                 } else {
                     includes.remove("init");
                 }
-                if (get(c, "is_input_method").equals("true")) {
-                    includes.add("extra/input_method");
-                } else {
-                    includes.remove("extra/input_method");
-                }
                 if (get(c, "is_ssh").equals("true")) {
                     includes.add("extra/ssh");
                 } else {
@@ -69,7 +64,6 @@ class PropertiesStore extends ParamUtils {
                 } else {
                     includes.remove("graphics");
                     includes.remove("desktop");
-                    includes.remove("extra/input_method");
                 }
                 value = TextUtils.join(" ", includes);
                 break;
@@ -87,8 +81,6 @@ class PropertiesStore extends ParamUtils {
                 case "include":
                     List includes = Arrays.asList(value.split(" "));
                     if (includes.contains("init")) set(c, "is_init", "true");
-                    if (includes.contains("extra/input_method"))
-                        set(c,"is_input_method","true");
                     if (includes.contains("extra/ssh")) set(c, "is_ssh", "true");
                     if (includes.contains("extra/pulse")) set(c, "is_pulse", "true");
                     if (includes.contains("graphics")) set(c, "is_gui", "true");

@@ -1,14 +1,12 @@
 package ru.meefik.linuxdeploy.adapter;
 
-
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -16,77 +14,99 @@ import java.util.List;
 import ru.meefik.linuxdeploy.R;
 import ru.meefik.linuxdeploy.model.RepositoryProfile;
 
-public class RepositoryProfileAdapter extends RecyclerView.Adapter<
-        RepositoryProfileAdapter.RepositoryProfileViewHolder> {
+public class RepositoryProfileAdapter extends RecyclerView.Adapter<RepositoryProfileAdapter.ViewHolder> {
 
-    private List<RepositoryProfile> RepositoryProfileList;
-    private Context context;
-
+    private List<RepositoryProfile> repositoryProfiles;
     private OnItemClickListener listener;
 
-    public  RepositoryProfileAdapter
-            (List<RepositoryProfile> _RepositoryProfileList, Context _context){
-        RepositoryProfileList = _RepositoryProfileList;
-        context = _context;
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.repository_row, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public RepositoryProfileAdapter.RepositoryProfileViewHolder onCreateViewHolder(
-            ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.repository_row,parent,false);
-        return new RepositoryProfileViewHolder(view);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.setRepository(repositoryProfiles.get(position));
     }
 
     @Override
-    public void onBindViewHolder(RepositoryProfileViewHolder holder,
-                                 @SuppressLint("RecyclerView") int position){
-
-        RepositoryProfile repositoryprofile = RepositoryProfileList.get(position);
-        holder.RepositoryProfile_icon.setImageResource(repositoryprofile.getIconId());
-        holder.RepositoryProfile_type.setText(repositoryprofile.getType());
-        holder.RepositoryProfile_description.setText(repositoryprofile.getDescription());
-
+    public int getItemCount() {
+        return repositoryProfiles != null ? repositoryProfiles.size() : 0;
     }
 
-
-    public class RepositoryProfileViewHolder extends RecyclerView.ViewHolder{
-        ImageView RepositoryProfile_icon;
-        TextView RepositoryProfile_type;
-        TextView RepositoryProfile_description;
-
-        public RepositoryProfileViewHolder (View view)
-        {
-            super(view);
-            RepositoryProfile_icon = (ImageView) view.findViewById(R.id.repo_entry_icon);
-            RepositoryProfile_type = (TextView) view.findViewById(R.id.repo_entry_title);
-            RepositoryProfile_description = (TextView) view.findViewById(R.id.repo_entry_subtitle);
-
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (listener != null){
-                        listener.onClick(RepositoryProfileList.get(
-                                getAdapterPosition()));
-                    }
-                }
-            });
-        }
-
-    }
-
-    @Override
-    public int getItemCount(){
-        return RepositoryProfileList.size();
+    public void setRepositoryProfiles(List<RepositoryProfile> repositoryProfiles) {
+        this.repositoryProfiles = repositoryProfiles;
+        notifyDataSetChanged();
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        private View view;
+        private TextView title;
+        private TextView subTitle;
+        private ImageView icon;
+
+        ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            view = itemView;
+            title = itemView.findViewById(R.id.repo_entry_title);
+            subTitle = itemView.findViewById(R.id.repo_entry_subtitle);
+            icon = itemView.findViewById(R.id.repo_entry_icon);
+        }
+
+        public void setRepository(RepositoryProfile repositoryProfile) {
+            int iconRes = R.raw.linux;
+            if (repositoryProfile.getType() != null) {
+                switch (repositoryProfile.getType()) {
+                    case "alpine":
+                        iconRes = R.raw.alpine;
+                        break;
+                    case "archlinux":
+                        iconRes = R.raw.archlinux;
+                        break;
+                    case "centos":
+                        iconRes = R.raw.centos;
+                        break;
+                    case "debian":
+                        iconRes = R.raw.debian;
+                        break;
+                    case "fedora":
+                        iconRes = R.raw.fedora;
+                        break;
+                    case "kali":
+                        iconRes = R.raw.kali;
+                        break;
+                    case "slackware":
+                        iconRes = R.raw.slackware;
+                        break;
+                    case "ubuntu":
+                        iconRes = R.raw.ubuntu;
+                        break;
+                }
+            }
+
+            icon.setImageResource(iconRes);
+            title.setText(repositoryProfile.getProfile());
+            if (repositoryProfile.getDescription() != null && !repositoryProfile.getDescription().isEmpty())
+                subTitle.setText(repositoryProfile.getDescription());
+            else
+                subTitle.setText(view.getContext().getString(R.string.repository_default_description));
+
+            view.setOnClickListener(v -> {
+                if (listener != null)
+                    listener.onClick(repositoryProfile);
+            });
+        }
+    }
+
     public interface OnItemClickListener {
         void onClick(RepositoryProfile repositoryProfile);
     }
-
-
 }
