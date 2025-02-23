@@ -17,8 +17,6 @@
     <string name="menu_export">导出</string>
     <string name="menu_status">状态</string>
     <string name="menu_clear">清空</string>
-    <string name="menu_ssh">启动sshClient</string>
-    <string name="menu_vnc">启动vncClient</string>
     <string name="menu_add">新建</string>
     <string name="menu_edit">编辑</string>
     <string name="menu_delete">删除</string>
@@ -55,9 +53,8 @@
     <string name="edit_mount_title">挂载点</string>
     <string name="confirm_mount_discard_title">移除挂载点</string>
     <string name="confirm_mount_discard_message">确定移除这个挂载点？</string>
-    <string name="_repository_import_message">提取码：%s</string>
+    <string name="repository_import_message">%1$s\n\n文件大小： %2$s MB</string>
     <string name="repository_import_button">添加</string>
-    <string name="repository_goto_button">前往</string>
     <string name="repository_purchase_button">购买</string>
     <string name="repository_change_url_title">仓库源地址</string>
     <string name="repository_default_description">没有说明。</string>
@@ -280,8 +277,6 @@
     <!-- VNC_ARGS -->
     <string name="title_vnc_args_preference">VNC 选项</string>
     <string name="dialog_title_vnc_args_preference">VNC 服务器选项</string>
-    <!-- InputMethod -->
-    <string name="title_intputmethod"> 输入法 </string>
 
     <string name="x11_preferences">X11</string>
     <!-- X11_DISPLAY -->

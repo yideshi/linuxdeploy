@@ -281,13 +281,11 @@
     <!-- Debian -->
 
     <string-array name="debian_suite_values" translatable="false">
-        <item>oldstable</item>
-        <item>stable</item>
-        <item>testing</item>
-        <item>unstable</item>
         <item>jessie</item>
         <item>stretch</item>
         <item>buster</item>
+        <item>bullseye</item>
+        <item>bookworm</item>
     </string-array>
     <string-array name="debian_arch_values" translatable="false">
         <item>armel</item>
@@ -300,10 +298,12 @@
     <!-- Ubuntu -->
 
     <string-array name="ubuntu_suite_values" translatable="false">
-        <item>precise</item>
         <item>trusty</item>
         <item>xenial</item>
         <item>bionic</item>
+        <item>focal</item>
+        <item>jammy</item>
+        <item>noble</item>
     </string-array>
     <string-array name="ubuntu_arch_values" translatable="false">
         <item>armel</item> <!-- precise only -->

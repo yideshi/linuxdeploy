@@ -4,7 +4,7 @@
     <string name="wifilock" translatable="true">true</string>
     <string name="wakelock" translatable="false">true</string>
     <string name="fontsize" translatable="false">10</string>
-    <string name="maxlines" translatable="false">1000</string>
+    <string name="maxlines" translatable="false">100</string>
     <string name="language" translatable="false"></string>
     <string name="theme" translatable="false">dark</string>
     <string name="timestamp" translatable="false">true</string>
@@ -36,12 +36,12 @@
     <string name="source_path" translatable="false">@string/arm_debian_source_path</string>
     <string name="target_type" translatable="false">file</string>
     <string name="target_path" translatable="false">@string/target_path_file</string>
-    <string name="target_path_file" translatable="false">/sdcard/Android/data/ru.meefik.linuxdeploy/linux.img</string>
-    <string name="target_path_directory" translatable="false">${ENV_DIR}/rootfs</string>
+    <string name="target_path_file" translatable="false">${EXTERNAL_STORAGE}/linux.img</string>
+    <string name="target_path_directory" translatable="false">${EXTERNAL_STORAGE}/linux</string>
     <string name="target_path_partition" translatable="false">/dev/block/mmcblkXpY</string>
     <string name="target_path_ram" translatable="false">/data/local/ram</string>
     <string name="target_path_custom" translatable="false"></string>
-    <string name="rootfs_archive" translatable="false">/sdcard/Android/data/ru.meefik.linuxdeploy/files/linux-rootfs.tar.gz</string>
+    <string name="rootfs_archive" translatable="false">${EXTERNAL_STORAGE}/linux-rootfs.tar.gz</string>
     <string name="disk_size" translatable="false">0</string>
     <string name="fs_type" translatable="false">ext4</string>
     <string name="user_name" translatable="false">android</string>
@@ -64,18 +64,16 @@
     <string name="ssh_options" translatable="false"></string>
     <string name="is_pulse" translatable="false">false</string>
     <string name="pulse_host" translatable="false">127.0.0.1</string>
-    <string name="pulse_port" translatable="false">12345</string>
+    <string name="pulse_port" translatable="false">4712</string>
     <string name="is_gui" translatable="false">false</string>
     <string name="graphics" translatable="false">vnc</string>
-    <string name="desktop" translatable="false">xfce</string>
+    <string name="desktop" translatable="false">lxde</string>
     <string name="vnc_display" translatable="false">0</string>
     <string name="vnc_depth" translatable="false">16</string>
     <string name="vnc_dpi" translatable="false">75</string>
     <string name="vnc_width" translatable="false"></string>
     <string name="vnc_height" translatable="false"></string>
     <string name="vnc_args" translatable="false"></string>
-    <string name="is_input_method" translatable="false">false</string>
-    <string name="InputMethod" translatable="false">fcitx</string>
     <string name="x11_display" translatable="false">0</string>
     <string name="x11_host" translatable="false">127.0.0.1</string>
     <string name="x11_sdl" translatable="false">false</string>
@@ -88,33 +86,33 @@
     <string name="fb_freeze" translatable="false">none</string>
 
     <!-- Debian -->
-    <string name="debian_suite" translatable="false">buster</string>
+    <string name="debian_suite" translatable="false">bullseye</string>
     <!-- arm -->
-    <string name="arm_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="arm_debian_source_path" translatable="false">https://mirrors.aliyun.com/debian/</string>
     <string name="arm_debian_arch" translatable="false">armhf</string>
     <!-- arm_64 -->
-    <string name="arm_64_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="arm_64_debian_source_path" translatable="false">https://mirrors.aliyun.com/debian/</string>
     <string name="arm_64_debian_arch" translatable="false">arm64</string>
     <!-- x86 -->
-    <string name="x86_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="x86_debian_source_path" translatable="false">https://mirrors.aliyun.com/debian/</string>
     <string name="x86_debian_arch" translatable="false">i386</string>
     <!-- x86_64 -->
-    <string name="x86_64_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="x86_64_debian_source_path" translatable="false">https://mirrors.aliyun.com/debian/</string>
     <string name="x86_64_debian_arch" translatable="false">amd64</string>
 
     <!-- Ubuntu -->
     <string name="ubuntu_suite" translatable="false">bionic</string>
     <!-- arm -->
-    <string name="arm_ubuntu_source_path" translatable="false">http://ports.ubuntu.com/</string>
+    <string name="arm_ubuntu_source_path" translatable="false">https://mirrors.aliyun.com/ubuntu-ports/</string>
     <string name="arm_ubuntu_arch" translatable="false">armhf</string>
     <!-- arm_64 -->
-    <string name="arm_64_ubuntu_source_path" translatable="false">http://ports.ubuntu.com/</string>
+    <string name="arm_64_ubuntu_source_path" translatable="false">https://mirrors.aliyun.com/ubuntu-ports/</string>
     <string name="arm_64_ubuntu_arch" translatable="false">arm64</string>
     <!-- x86 -->
-    <string name="x86_ubuntu_source_path" translatable="false">http://archive.ubuntu.com/ubuntu/</string>
+    <string name="x86_ubuntu_source_path" translatable="false">https://mirrors.aliyun.com/ubuntu/</string>
     <string name="x86_ubuntu_arch" translatable="false">i386</string>
     <!-- x86_64 -->
-    <string name="x86_64_ubuntu_source_path" translatable="false">http://archive.ubuntu.com/ubuntu/</string>
+    <string name="x86_64_ubuntu_source_path" translatable="false">https://mirrors.aliyun.com/ubuntu/</string>
     <string name="x86_64_ubuntu_arch" translatable="false">amd64</string>
 
     <!-- Kali Linux -->

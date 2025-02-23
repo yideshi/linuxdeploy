@@ -8,8 +8,8 @@ android {
         applicationId 'ru.meefik.linuxdeploy'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 437
-        versionName "2.8.1"
+        versionCode 257
+        versionName "2.6.2"
         vectorDrawables.useSupportLibrary true
     }
 /*

@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name" translatable="false">Linux Deploy Pulse</string>
+    <string name="app_name" translatable="false">Linux Deploy</string>
     <string name="app_version">version %1$s</string>
     <string name="menu_start">START</string>
     <string name="menu_stop">STOP</string>
@@ -18,8 +18,6 @@
     <string name="menu_export">Export</string>
     <string name="menu_status">Status</string>
     <string name="menu_clear">Clear</string>
-    <string name="menu_ssh">Start SSHClient</string>
-    <string name="menu_vnc">Start VNCClient</string>
     <string name="menu_add">New</string>
     <string name="menu_edit">Edit</string>
     <string name="menu_delete">Delete</string>
@@ -57,9 +55,8 @@
     <string name="edit_mount_title">Edit mount point</string>
     <string name="confirm_mount_discard_title">Remove mount point</string>
     <string name="confirm_mount_discard_message">Remove selected mount point from the list?</string>
-    <string name="_repository_import_message">Extraction Code:%s</string>
+    <string name="repository_import_message">%1$s\n\nSize: %2$s MB</string>
     <string name="repository_import_button">Import</string>
-    <string name="repository_goto_button">Goto</string>>
     <string name="repository_purchase_button">Purchase</string>
     <string name="repository_change_url_title">Repository URL</string>
     <string name="repository_default_description">No description.</string>
@@ -314,8 +311,6 @@
     <!-- VNC_ARGS -->
     <string name="title_vnc_args_preference">VNC options</string>
     <string name="dialog_title_vnc_args_preference">VNC: vncserver options</string>
-    <!-- InputMethod -->
-    <string name="title_intputmethod">InputMethod </string>
 
     <!-- X11 -->
     <string name="x11_preferences">X11</string>

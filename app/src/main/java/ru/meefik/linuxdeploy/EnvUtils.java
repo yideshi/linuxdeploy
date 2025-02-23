@@ -29,7 +29,6 @@ public class EnvUtils {
      * @param path      path to asset file
      * @return true if success
      */
-
     private static boolean extractFile(Context c, String target, String rootAsset, String path) {
         AssetManager assetManager = c.getAssets();
 
@@ -294,14 +293,6 @@ public class EnvUtils {
         } catch (IOException ignored) {
         }
 
-        // create ExternalStorage directory
-        File ExternalStorageDir = new File(PrefStore.getExternalDir(c)+"/..");
-        ExternalStorageDir.mkdirs();
-
-        // create External directory
-        File ExternalFileDir = new File(PrefStore.getExternalDir(c));
-        ExternalFileDir.mkdirs();
-
         List<String> params = new ArrayList<>();
         // install busybox applets
         params.add("busybox --install -s " + PrefStore.getBinDir(c));
@@ -339,9 +330,9 @@ public class EnvUtils {
      */
     private static boolean makeMainScript(Context c) {
         String scriptFile = PrefStore.getBinDir(c) + "/linuxdeploy";
-        String Arch = PrefStore.getArch();
+
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(scriptFile))) {
-            bw.write("#!" + PrefStore.getPath(c) + "/ash\n");
+            bw.write("#!" + PrefStore.getShell(c) + "\n");
             bw.write("PATH=" + PrefStore.getPath(c) + ":$PATH\n");
             bw.write("ENV_DIR=\"" + PrefStore.getEnvDir(c) + "\"\n");
             bw.write(". \"${ENV_DIR}/cli.sh\"\n");
