@@ -4,7 +4,7 @@ finddebs_style from-indices
 variants - buildd fakechroot minbase
 keyring /usr/share/keyrings/debian-archive-keyring.gpg
 
-# include common settings
+# 包括常用设置
 if [ -e "$DEBOOTSTRAP_DIR/scripts/debian-common" ]; then
  . "$DEBOOTSTRAP_DIR/scripts/debian-common"
 elif [ -e /debootstrap/debian-common ]; then

@@ -285,14 +285,14 @@
         <item>stable</item>
         <item>testing</item>
         <item>unstable</item>
-        <item>jessie</item>
-        <item>stretch</item>
         <item>buster</item>
+        <item>bullseye</item>
+        <item>bookworm</item>
     </string-array>
     <string-array name="debian_arch_values" translatable="false">
         <item>armel</item>
         <item>armhf</item>
-        <item>arm64</item> <!-- jessie and later -->
+        <item>arm64</item>
         <item>i386</item>
         <item>amd64</item>
     </string-array>
