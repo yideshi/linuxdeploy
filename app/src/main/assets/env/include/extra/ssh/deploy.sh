@@ -12,6 +12,7 @@ do_install()
     debian:*|ubuntu:*|kali:*)
         packages="openssh-server"
         [ "${METHOD}" = "proot" ] && packages="${packages} fakechroot"
+        apt_install -f #解决依赖关系
         apt_install ${packages}
     ;;
     archlinux:*)
