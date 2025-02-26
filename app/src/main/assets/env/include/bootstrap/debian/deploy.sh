@@ -40,11 +40,7 @@ apt_repository()
     echo 'apt::sandbox::seccomp "false";' > "${CHROOT_DIR}/etc/apt/apt.conf.d/999seccomp-off"
     # Update sources.list
     echo "deb ${SOURCE_PATH} ${SUITE} main contrib non-free" > "${CHROOT_DIR}/etc/apt/sources.list"
-    echo "# deb-src ${SOURCE_PATH} ${SUITE} main contrib non-free" >> "${CHROOT_DIR}/etc/apt/sources.list"
-    echo "deb ${SOURCE_PATH} ${SUITE}-updates main contrib non-free" >> "${CHROOT_DIR}/etc/apt/sources.list"
-    echo "# deb-src ${SOURCE_PATH} ${SUITE}-updates main contrib non-free" >> "${CHROOT_DIR}/etc/apt/sources.list"
-    echo "deb ${SOURCE_PATH} ${SUITE}-backports main contrib non-free" >> "${CHROOT_DIR}/etc/apt/sources.list"
-    echo "# deb-src ${SOURCE_PATH} ${SUITE}-backports main contrib non-free" >> "${CHROOT_DIR}/etc/apt/sources.list"
+    echo "deb-src ${SOURCE_PATH} ${SUITE} main contrib non-free" >> "${CHROOT_DIR}/etc/apt/sources.list"
 }
 
 do_install()
@@ -66,7 +62,7 @@ do_install()
     component_exec core/emulator core/mnt core/net
 
     unset DEBOOTSTRAP_DIR
-    chroot_exec /debootstrap/debootstrap --no-check-gpg --second-stage
+    chroot_exec /debootstrap/debootstrap --no-check-gpg --second-stage && apt_install -f -qq
     is_ok || return 1
 
     msg -n "Updating repository ... "

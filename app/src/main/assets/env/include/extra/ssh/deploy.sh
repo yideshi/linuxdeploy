@@ -12,7 +12,6 @@ do_install()
     debian:*|ubuntu:*|kali:*)
         packages="openssh-server"
         [ "${METHOD}" = "proot" ] && packages="${packages} fakechroot"
-        apt_install -f #解决依赖关系
         apt_install ${packages}
     ;;
     archlinux:*)
@@ -52,7 +51,7 @@ do_configure()
 do_start()
 {
     msg -n ":: Starting ${COMPONENT} ... "
-    is_stopped /var/run/sshd.pid /run/sshd.pid
+    is_stopped /var/run/sshd.pid /run/sshd.pid || test -z $(pidof /data/local/mnt/usr/sbin/sshd)
     is_ok "skip" || return 0
     make_dirs /run/sshd /var/run/sshd
     # generate keys

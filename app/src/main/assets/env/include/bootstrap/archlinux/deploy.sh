@@ -55,6 +55,7 @@ do_install()
 
     msg ":: Installing ${COMPONENT} ... "
 
+	local def_extra_packages=libbsd
     local repo_url
     case "$(get_platform ${ARCH})" in
     x86_64) repo_url="${SOURCE_PATH%/}/core/os/${ARCH}" ;;
@@ -68,7 +69,7 @@ do_install()
     is_ok "fail" "done" || return 1
 
     msg -n "Retrieving packages list ... "
-    local core_files=$(wget -q -O - "${repo_url}/core.db.tar.gz" | tar xOz | grep '.pkg.tar.xz$' | grep -v -e '^linux-' -e '^grub-' -e '^efibootmgr-' -e '^openssh-' | sort)
+    local core_files=$(wget -q -O - "${repo_url}/core.db.tar.gz" | tar xOz | grep '.pkg.tar.xz$' | grep -v -e '^linux-' -e '^grub-' -e '^efibootmgr-' -e '^openssh-' -e 'ca-certificates-cacert' -e 'iptables-nft' -e 'openssl-cryptodev' -e 'systemd-resolvconf' -e 'debug' -e 'qgpgme' -e '^gcc-' -e 'libgccjit' -e 'llvm-libs' | sort)
     is_ok "fail" "done" || return 1
 
     msg "Retrieving packages: "
@@ -95,7 +96,9 @@ do_install()
     is_ok "fail" "done"
 
     msg "Installing packages: "
-    pacman_install base $(echo ${core_files} | sed 's/-[0-9].*$//') ${EXTRA_PACKAGES}
+    # We must update the certificate before install
+	chroot_exec -u root update-ca-trust
+    pacman_install base $(echo ${core_files} | sed 's/ /\n/g' | awk '{ sub(/-[0-9].*$/,""); print $1 }') ${EXTRA_PACKAGES} ${def_extra_packages}
     is_ok || return 1
 
     msg -n "Clearing cache ... "

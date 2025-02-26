@@ -22,19 +22,19 @@ do_install()
 
     local image="${SOURCE_PATH%%:*}"
     local tag="${SOURCE_PATH##*:}"
-    msg -n "Docker存储库中的授权 ... "
-    local token=$(wget -q -O - "https://docker.ydscn.us.kg/token?service=registry.docker.io&scope=repository:${image}:pull" | grep -oE '"token":"[.a-zA-Z0-9_-]+"' | tr -d '"' | awk -F':' '{print $2}')
+    msg -n "Authorization in Docker repository ... "
+    local token=$(wget -q -O - "https://auth.docker.io/token?service=registry.docker.io&scope=repository:${image}:pull" | grep -oE '"token":"[.a-zA-Z0-9_-]+"' | tr -d '"' | awk -F':' '{print $2}')
     test -n "${token}"
     is_ok "fail" "done" || return 1
-    msg -n "正在从存储库获取清单 ..."
-    local manifest=$(wget -q -O - --header "Authorization: Bearer ${token}" --header "Accept: application/vnd.docker.distribution.manifest.list.v2+json" "https://docker.ydscn.us.kg/v2/${image}/manifests/${tag}" | sed 's/},{/\n/g' | grep "\"${ARCH}\".*\"${SUITE}\"" | grep -oE 'sha256:[a-f0-9]{64}')
+    msg -n "Fetching manifests from the repository ... "
+    local manifest=$(wget -q -O - --header "Authorization: Bearer ${token}" --header "Accept: application/vnd.docker.distribution.manifest.list.v2+json" "https://registry-1.docker.io/v2/${image}/manifests/${tag}" | sed 's/},{/\n/g' | grep "\"${ARCH}\".*\"${SUITE}\"" | grep -oE 'sha256:[a-f0-9]{64}')
     test -n "${manifest}"
     is_ok "fail" "done" || return 1
     msg "Retrieving rootfs blobs: "
-    wget -q -O - --header "Authorization: Bearer ${token}" "https://docker.ydscn.us.kg/v2/${image}/manifests/${manifest}" | tr '\n' ' ' | tr '{}' '\n' | grep 'tar.gzip.*digest' | grep -oE 'sha256:[0-9a-f]{64}' | while read digest
+    wget -q -O - --header "Authorization: Bearer ${token}" "https://registry-1.docker.io/v2/${image}/manifests/${manifest}" | tr '\n' ' ' | tr '{}' '\n' | grep 'tar.gzip.*digest' | grep -oE 'sha256:[0-9a-f]{64}' | while read digest
     do
       msg -n " * ${digest} ... "
-      wget -q -O - --header "Authorization: Bearer ${token}" "https://docker.ydscn.us.kg/v2/${image}/blobs/${digest}" | tar xz -C "${CHROOT_DIR}"
+      wget -q -O - --header "Authorization: Bearer ${token}" "https://registry-1.docker.io/v2/${image}/blobs/${digest}" | tar xz -C "${CHROOT_DIR}"
       is_ok "fail" "done"
     done
 
