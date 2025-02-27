@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
@@ -8,49 +9,21 @@ android {
         minSdkVersion 21
         // API 28 must be frozen for binary execution
         targetSdkVersion 28
-        versionCode 265
-        versionName "2.6.5"
+        versionCode 259
+        versionName "2.6.0"
         vectorDrawables.useSupportLibrary true
     }
-
-    signingConfigs {
-        release {
-            storeFile = file("release.keystore")
-            storePassword System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword System.getenv("SIGNING_KEY_PASSWORD")
-        }
-
-        debug {
-            storeFile = file("release.keystore")
-            storePassword System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword System.getenv("SIGNING_KEY_PASSWORD")
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
-
-        debug {
-            signingConfig signingConfigs.debug
         }
     }
-    
-    buildFeatures {
-        buildConfig true
-    }
-
     lintOptions {
         disable 'MissingTranslation'
         disable 'ExtraTranslation'
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
