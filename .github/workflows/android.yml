@@ -23,6 +23,11 @@ jobs:
       with:
         job-id: jdk11
         arguments: --build-cache build
+      env:
+        SIGNING_KEY_STORE: ${{ steps.keystore.outputs.filePath }}
+        SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+        SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
 
     - name: Upload app-debug.apk artifacts
       uses: actions/upload-artifact@v4
@@ -30,8 +35,8 @@ jobs:
         name: app-debug.apk
         path: app/build/outputs/apk/debug/app-debug.apk
 
-    - name: Upload app-release.apk artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-release.apk
-        path: app/build/outputs/apk/release/app-release.apk
+#    - name: Upload app-release.apk artifacts
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: app-release.apk
+#        path: app/build/outputs/apk/release/app-release.apk
