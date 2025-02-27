@@ -59,4 +59,4 @@ jobs:
           SIGNING_KEY_STORE: ${{ steps.keystore.outputs.filePath }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          # SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
