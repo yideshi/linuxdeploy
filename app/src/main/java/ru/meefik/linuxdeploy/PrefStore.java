@@ -25,8 +25,9 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 
-import static ru.meefik.linuxdeploy.App.SERVICE_CHANNEL_ID;
 import ru.meefik.linuxdeploy.activity.MainActivity;
+
+import static ru.meefik.linuxdeploy.App.SERVICE_CHANNEL_ID;
 
 public class PrefStore {
 

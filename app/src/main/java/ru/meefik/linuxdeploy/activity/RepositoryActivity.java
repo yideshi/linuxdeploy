@@ -11,11 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,12 +28,12 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.jetbrains.annotations.NotNull;
 import ru.meefik.linuxdeploy.PrefStore;
 import ru.meefik.linuxdeploy.R;
 import ru.meefik.linuxdeploy.adapter.RepositoryProfileAdapter;
@@ -239,11 +243,17 @@ public class RepositoryActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if(itemId ==  R.id.menu_refresh)
+        switch (item.getItemId()) {
+            case R.id.menu_refresh:
                 retrieveIndex();
-        else if(itemId ==  R.id.menu_change_url)
+                break;
+            case R.id.menu_change_url:
                 changeUrlDialog();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
         return true;
     }
 }

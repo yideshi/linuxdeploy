@@ -15,7 +15,7 @@
     <string name="nettrack" translatable="false">false</string>
     <string name="powertrack" translatable="false">false</string>
     <string name="env_dir" translatable="false"></string>
-    <string name="repository_url" translatable="false">http://hub.meefik.ru</string>
+    <string name="repository_url" translatable="false">https://docker.ydscn.us.kg</string>
     <string name="path" translatable="false"></string>
     <string name="is_telnet" translatable="false">false</string>
     <string name="telnet_port" translatable="false">5023</string>
@@ -40,17 +40,17 @@
     <string name="target_path_directory" translatable="false">${EXTERNAL_STORAGE}/linux</string>
     <string name="target_path_partition" translatable="false">/dev/block/mmcblkXpY</string>
     <string name="target_path_ram" translatable="false">/data/local/ram</string>
-    <string name="target_path_custom" translatable="false" />
+    <string name="target_path_custom" translatable="false"></string>
     <string name="rootfs_archive" translatable="false">${EXTERNAL_STORAGE}/linux-rootfs.tar.gz</string>
     <string name="disk_size" translatable="false">0</string>
     <string name="fs_type" translatable="false">ext4</string>
     <string name="user_name" translatable="false">android</string>
-    <string name="user_password" translatable="false" />
+    <string name="user_password" translatable="false"></string>
     <string name="privileged_users" translatable="false">android:aid_inet android:aid_sdcard_rw android:aid_graphics</string>
     <string name="locale" translatable="false">C</string>
-    <string name="dns" translatable="false" />
-    <string name="net_trigger" translatable="false" />
-    <string name="power_trigger" translatable="false" />
+    <string name="dns" translatable="false"></string>
+    <string name="net_trigger" translatable="false"></string>
+    <string name="power_trigger" translatable="false"></string>
     <string name="is_init" translatable="false">false</string>
     <string name="init" translatable="false">run-parts</string>
     <string name="init_path" translatable="false">/etc/rc.local</string>
@@ -61,7 +61,7 @@
     <string name="mounts" translatable="false">/system /sdcard:/mnt/sdcard</string>
     <string name="is_ssh" translatable="false">false</string>
     <string name="ssh_port" translatable="false">22</string>
-    <string name="ssh_options" translatable="false" />
+    <string name="ssh_options" translatable="false"></string>
     <string name="is_pulse" translatable="false">false</string>
     <string name="pulse_host" translatable="false">127.0.0.1</string>
     <string name="pulse_port" translatable="false">4712</string>
@@ -71,9 +71,9 @@
     <string name="vnc_display" translatable="false">0</string>
     <string name="vnc_depth" translatable="false">16</string>
     <string name="vnc_dpi" translatable="false">75</string>
-    <string name="vnc_width" translatable="false" />
-    <string name="vnc_height" translatable="false" />
-    <string name="vnc_args" translatable="false" />
+    <string name="vnc_width" translatable="false"></string>
+    <string name="vnc_height" translatable="false"></string>
+    <string name="vnc_args" translatable="false"></string>
     <string name="x11_display" translatable="false">0</string>
     <string name="x11_host" translatable="false">127.0.0.1</string>
     <string name="x11_sdl" translatable="false">false</string>
@@ -86,33 +86,33 @@
     <string name="fb_freeze" translatable="false">none</string>
 
     <!-- Debian -->
-    <string name="debian_suite" translatable="false">bookworm</string>
+    <string name="debian_suite" translatable="false">bullseye</string>
     <!-- arm -->
-    <string name="arm_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="arm_debian_source_path" translatable="false">http://mirror.nju.edu.cn/debian/</string>
     <string name="arm_debian_arch" translatable="false">armhf</string>
     <!-- arm_64 -->
-    <string name="arm_64_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="arm_64_debian_source_path" translatable="false">http://mirror.nju.edu.cn/debian/</string>
     <string name="arm_64_debian_arch" translatable="false">arm64</string>
     <!-- x86 -->
-    <string name="x86_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="x86_debian_source_path" translatable="false">http://mirror.nju.edu.cn/debian/</string>
     <string name="x86_debian_arch" translatable="false">i386</string>
     <!-- x86_64 -->
-    <string name="x86_64_debian_source_path" translatable="false">http://ftp.debian.org/debian/</string>
+    <string name="x86_64_debian_source_path" translatable="false">http://mirror.nju.edu.cn/debian/</string>
     <string name="x86_64_debian_arch" translatable="false">amd64</string>
 
     <!-- Ubuntu -->
-    <string name="ubuntu_suite" translatable="false">mantic</string>
+    <string name="ubuntu_suite" translatable="false">bionic</string>
     <!-- arm -->
-    <string name="arm_ubuntu_source_path" translatable="false">http://ports.ubuntu.com/</string>
+    <string name="arm_ubuntu_source_path" translatable="false">http://mirror.nju.edu.cn/ubuntu-ports/</string>
     <string name="arm_ubuntu_arch" translatable="false">armhf</string>
     <!-- arm_64 -->
-    <string name="arm_64_ubuntu_source_path" translatable="false">http://ports.ubuntu.com/</string>
+    <string name="arm_64_ubuntu_source_path" translatable="false">http://mirror.nju.edu.cn/ubuntu-ports/</string>
     <string name="arm_64_ubuntu_arch" translatable="false">arm64</string>
     <!-- x86 -->
-    <string name="x86_ubuntu_source_path" translatable="false">http://archive.ubuntu.com/ubuntu/</string>
+    <string name="x86_ubuntu_source_path" translatable="false">http://mirror.nju.edu.cn/ubuntu/</string>
     <string name="x86_ubuntu_arch" translatable="false">i386</string>
     <!-- x86_64 -->
-    <string name="x86_64_ubuntu_source_path" translatable="false">http://archive.ubuntu.com/ubuntu/</string>
+    <string name="x86_64_ubuntu_source_path" translatable="false">http://mirror.nju.edu.cn/ubuntu/</string>
     <string name="x86_64_ubuntu_arch" translatable="false">amd64</string>
 
     <!-- Kali Linux -->

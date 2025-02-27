@@ -12,12 +12,15 @@ import android.view.View.OnTouchListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import ru.meefik.linuxdeploy.PrefStore;
 import ru.meefik.linuxdeploy.R;
 
@@ -205,16 +208,27 @@ public class ProfilesActivity extends AppCompatActivity implements OnTouchListen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if(itemId == R.id.menu_add) addDialog();
-        else if(itemId == R.id.menu_edit) editDialog();
-        else if(itemId == R.id.menu_delete) deleteDialog();
+        switch (item.getItemId()) {
+            case R.id.menu_add:
+                addDialog();
+                break;
+            case R.id.menu_edit:
+                editDialog();
+                break;
+            case R.id.menu_delete:
+                deleteDialog();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
         return true;
     }
 
     @Override
     public void onPause() {
         super.onPause();
+
         int pos = listView.getCheckedItemPosition();
         if (pos >= 0 && pos < listItems.size()) {
             String profile = listItems.get(pos);

@@ -285,16 +285,14 @@
         <item>stable</item>
         <item>testing</item>
         <item>unstable</item>
-        <item>jessie</item>
-        <item>stretch</item>
         <item>buster</item>
         <item>bullseye</item>
-	<item>bookworm</item>
+        <item>bookworm</item>
     </string-array>
     <string-array name="debian_arch_values" translatable="false">
         <item>armel</item>
         <item>armhf</item>
-        <item>arm64</item> <!-- jessie and later -->
+        <item>arm64</item>
         <item>i386</item>
         <item>amd64</item>
     </string-array>
@@ -302,11 +300,12 @@
     <!-- Ubuntu -->
 
     <string-array name="ubuntu_suite_values" translatable="false">
+        <item>precise</item>
+        <item>trusty</item>
+        <item>xenial</item>
         <item>bionic</item>
-        <item>focal</item>
-        <item>impish</item>
         <item>jammy</item>
-        <item>mantic</item>
+        <item>noble</item>
     </string-array>
     <string-array name="ubuntu_arch_values" translatable="false">
         <item>armel</item> <!-- precise only -->
