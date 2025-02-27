@@ -12,15 +12,12 @@ import android.view.View.OnTouchListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import ru.meefik.linuxdeploy.PrefStore;
 import ru.meefik.linuxdeploy.R;
 
@@ -228,7 +225,6 @@ public class ProfilesActivity extends AppCompatActivity implements OnTouchListen
     @Override
     public void onPause() {
         super.onPause();
-
         int pos = listView.getCheckedItemPosition();
         if (pos >= 0 && pos < listItems.size()) {
             String profile = listItems.get(pos);
